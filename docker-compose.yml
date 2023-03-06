@@ -5,7 +5,7 @@ services:
     build: .
     image: cicd
     volumes:
-    - /home/ec2-user/environment/boto3_dev/cicd_terraform:/cicd_terraform:rw
+      - /home/ec2-user/environment/boto3_dev/cicd_terraform:/cicd_terraform:rw
    
   boto3_pl:
     build: .
