@@ -5,3 +5,5 @@ RUN apt-get update
 RUN apt-get -y install python3-pip \
     && pip install boto3
 
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+
