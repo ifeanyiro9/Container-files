@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      replicas: 4
+      placement:
+        constraints:
+          - node.role == worker
+
+  apache:
+    image: httpd:alpine
+    deploy:
+      replicas: 10
+      placement:
+        constraints:
+          - node.role == worker
+  
+  postgres:
+    image: postgres:alpine
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
